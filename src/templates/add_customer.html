@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+
+<h1 class="text-capitalize text-center mx-10 bg-dark text-white"> Register a new customer </h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="last_name"> Nom </label>
+            <input name="last_name" required type="text" class="form-control" id="last_name"
+                placeholder="Cohen">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="first_name"> Prénom </label>
+            <input name="first_name" required type="text" class="form-control" id="first_name"
+                placeholder="Haya">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="societe"> Société </label>
+            <input name="societe" required type="text" class="form-control" id="societe"
+                placeholder="Haya">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="email"> Email </label>
+            <input name="email" required type="email" class="form-control" id="email" placeholder="cohen_haya@mail.com">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="telephone"> téléphone </label>
+            <input name="telephone" required type="number" class="form-control" id="telephone"
+                placeholder="0537872141">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="Address"> Adresse </label>
+            <input name="Address" type="text" required type="text" class="form-control" id="Address"
+                placeholder="hertzl 26">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="city"> City </label>
+            <input name="city" type="text" class="form-control" id="city" placeholder="Hadera">
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Enregistrer</button>
+
+</form>
+
+<br><br><br>
+
+{% endblock content %}

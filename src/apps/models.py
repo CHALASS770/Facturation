@@ -4,6 +4,8 @@ from django.db import models
 class Customers(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
+    #create a field societe not required
+    societe = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(max_length=200)
     telephone = models.CharField(max_length=200)
     Address = models.CharField(max_length=200)
@@ -21,7 +23,7 @@ class Customers(models.Model):
 
 
 class Invoice(models.Model):
-    IVOICES_TYPE = (
+    INVOICES_TYPE = (
         ('facture', 'FACTURE'),
         ('devis', 'DEVIS'),
         ('Proforma', 'Proforma'),
@@ -33,7 +35,7 @@ class Invoice(models.Model):
     amount = models.DecimalField(max_digits=10000, decimal_places=2)
     status = models.BooleanField(default=True)
     save_by = models.ForeignKey(User, on_delete=models.PROTECT)
-    invoice_type = models.CharField(max_length=200 , choices=IVOICES_TYPE)
+    invoice_type = models.CharField(max_length=200 , choices=INVOICES_TYPE, default='facture')
     class Meta:
         verbose_name = "Invoice"
         verbose_name_plural = "Invoices"
